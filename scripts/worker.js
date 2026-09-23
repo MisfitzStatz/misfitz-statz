@@ -1,4 +1,4 @@
-const BACKEND_URL = "https://dashboard-antihero.duckdns.org";
+const BACKEND_URL = "https://api.misfitzstatz.com";
 
 const PROXY_PREFIXES = [
   "/api/auth/",
