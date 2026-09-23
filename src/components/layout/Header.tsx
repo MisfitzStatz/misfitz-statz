@@ -1,5 +1,5 @@
 "use client";
-
+import { API_URL } from "@/lib/api";
 import { useEffect, useRef, useState } from "react";
 import LoginModal from "../LoginModal";
 import { useAuth } from "@/lib/AuthContext";
@@ -37,13 +37,13 @@ useEffect(() => {
 }, []);
 
 const handleLogout = async () => {
-  await fetch("/api/auth/logout", {
-    credentials: "include",
-    cache: "no-store"
-  });
+    await fetch(`${API_URL}/auth/logout`, {
+        credentials: "include",
+        cache: "no-store"
+    });
 
-  clearAuth();
-  setMenuOpen(false);
+    clearAuth();
+    setMenuOpen(false);
 };
 
 const mobileNavigation = [

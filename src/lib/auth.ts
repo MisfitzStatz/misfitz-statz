@@ -1,3 +1,6 @@
+import { API_URL } from "@/lib/api";
+import { notifyAuthInvalid } from "@/lib/authEvents";
+
 export interface LinkedAccount {
   playerId: string;
   verified: boolean;
@@ -29,11 +32,10 @@ export interface VerificationResult {
   data?: VerificationData;
 }
 
-
-
-import { notifyAuthInvalid } from "@/lib/authEvents";
-
-export async function authFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+export async function authFetch(
+  input: RequestInfo | URL,
+  init?: RequestInit
+): Promise<Response> {
   const response = await fetch(input, {
     ...init,
     credentials: "include",
@@ -43,16 +45,18 @@ export async function authFetch(input: RequestInfo | URL, init?: RequestInit): P
   if (response.status === 401) {
     notifyAuthInvalid();
   }
+
   return response;
 }
 
 export async function getCurrentAccount(): Promise<Account | null> {
-  const response = await fetch("/api/auth/me", {
-  credentials: "include",
-  cache: "no-store"
-});
+  const response = await fetch(`${API_URL}/auth/me`, {
+    credentials: "include",
+    cache: "no-store"
+  });
 
   const data: MeResponse = await response.json();
+
   if (!data.loggedIn) {
     return null;
   }
@@ -62,7 +66,7 @@ export async function getCurrentAccount(): Promise<Account | null> {
 
 export async function devLogin(): Promise<void> {
   const response = await fetch(
-    "/api/auth/test-login",
+    `${API_URL}/auth/test-login`,
     {
       credentials: "include",
       cache: "no-store"
@@ -76,7 +80,7 @@ export async function devLogin(): Promise<void> {
 
 export async function logout(): Promise<void> {
   const response = await fetch(
-    "/api/auth/logout",
+    `${API_URL}/auth/logout`,
     {
       credentials: "include",
       cache: "no-store"
@@ -84,30 +88,42 @@ export async function logout(): Promise<void> {
   );
 
   if (!response.ok) {
-    throw new Error(
-      "Logout failed."
-    );
+    throw new Error("Logout failed.");
   }
 }
 
-export async function startVerification(playerId: string): Promise<VerificationResult> {
-const response = await authFetch(`/api/auth/verify/start/${encodeURIComponent(playerId)}`);
+export async function startVerification(
+  playerId: string
+): Promise<VerificationResult> {
+  const response = await authFetch(
+    `${API_URL}/auth/verify/start/${encodeURIComponent(playerId)}`
+  );
+
   return response.json();
 }
 
 export async function checkVerification(): Promise<VerificationResult> {
-const response = await authFetch("/api/auth/verify/check");
+  const response = await authFetch(
+    `${API_URL}/auth/verify/check`
+  );
+
   return response.json();
 }
 
 export async function cancelVerification(): Promise<VerificationResult> {
-const response = await authFetch("/api/auth/verify",{method: "DELETE"});
+  const response = await authFetch(
+    `${API_URL}/auth/verify`,
+    {
+      method: "DELETE"
+    }
+  );
+
   return response.json();
 }
 
 export async function removePlayer(playerId: string): Promise<boolean> {
   const response = await authFetch(
-    `/api/auth/player/${encodeURIComponent(playerId)}`,
+    `${API_URL}/auth/player/${encodeURIComponent(playerId)}`,
     {
       method: "DELETE"
     }
@@ -121,9 +137,14 @@ export async function removePlayer(playerId: string): Promise<boolean> {
   return data.success === true;
 }
 
-
 export async function deleteAccount(): Promise<boolean> {
-  const response = await authFetch("/api/auth/account", {method: "DELETE"});
+  const response = await authFetch(
+    `${API_URL}/auth/account`,
+    {
+      method: "DELETE"
+    }
+  );
+
   if (!response.ok) {
     return false;
   }
@@ -132,11 +153,12 @@ export async function deleteAccount(): Promise<boolean> {
   return data.success === true;
 }
 
-
-export async function updatePrivacy(playerId: string,  privacy: LinkedAccount["privacy"]
+export async function updatePrivacy(
+  playerId: string,
+  privacy: LinkedAccount["privacy"]
 ): Promise<boolean> {
   const response = await authFetch(
-    "/api/auth/privacy",
+    `${API_URL}/auth/privacy`,
     {
       method: "PATCH",
       headers: {
