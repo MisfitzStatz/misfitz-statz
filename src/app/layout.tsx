@@ -8,14 +8,14 @@ import WebMCPProvider from "@/components/WebMCPProvider";
 import { AuthProvider } from "@/lib/AuthContext";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://misfitz-stats.pages.dev"),
+  metadataBase: new URL("https://misfitzstatz.com"),
   title:        "Misfitz Statz",
   description:  "Track your Misfitz progress, compare players, explore leaderboards and view detailed statistics.",
 
   openGraph: {
     title:        "Misfitz Statz",
     description:  "Track your Misfitz progress, compare players, explore leaderboards and view detailed statistics.",
-    url:          "https://misfitz-stats.pages.dev",
+    url:          "https://misfitzstatz.com",
     siteName:     "Misfitz Stats",
     images: [
       {

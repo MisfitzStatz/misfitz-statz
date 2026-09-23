@@ -330,6 +330,13 @@ return (
               >
                 Verification
               </a>
+              <a
+                href="/redeem"
+                onClick={() => setMenuOpen(false)}
+                className="block rounded-xl px-3 py-2 hover:bg-white/5"
+              >
+                Redeem a Code
+              </a>
               <button
                 onClick={handleLogout}
                 className="mt-2 w-full rounded-xl px-3 py-2 text-left text-red-400 hover:bg-red-500/10"
@@ -375,6 +382,13 @@ return (
               className="block rounded-xl px-3 py-2 hover:bg-white/5"
             >
               Verification
+            </a>
+            <a
+              href="/redeem"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-3 py-2 hover:bg-white/5"
+            >
+              Redeem a Code
             </a>
             <button
               onClick={handleLogout}
