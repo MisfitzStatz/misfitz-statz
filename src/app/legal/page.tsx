@@ -82,10 +82,10 @@ return (
           Official Discord Server
         </p>
         <a
-        href="https://discord.gg/jwSeHD9BrA"
+        href="https://discord.gg/bb9bGA9HW4"
         className="font-medium transition text-[#7CFF00]"
       >
-        https://discord.gg/jwSeHD9BrA
+        https://discord.gg/bb9bGA9HW4
       </a>
       </div>
     </div>

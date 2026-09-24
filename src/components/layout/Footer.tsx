@@ -28,7 +28,7 @@ return (
         Register for Playtests
       </a>
       <a
-        href="https://discord.gg/jwSeHD9BrA"
+        href="https://discord.gg/bb9bGA9HW4"
         target="_blank"
         rel="noopener noreferrer"
         className="transition hover:text-[#7CFF00]"
@@ -73,7 +73,7 @@ return (
 
     <div className="mt-6 flex flex-col gap-4 text-sm">
       <a
-        href="https://discord.gg/jwSeHD9BrA"
+        href="https://discord.gg/bb9bGA9HW4"
         target="_blank"
         rel="noopener noreferrer"
         className="rounded-xl border border-white/10 bg-white/5 py-3 transition hover:bg-white/10"

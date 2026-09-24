@@ -326,7 +326,7 @@ return (
         description="Support, bug reports, announcements, developer contact and community events."
       >
         <Link
-          href="https://discord.com/invite/jwSeHD9BrA"
+          href="https://discord.com/invite/bb9bGA9HW4"
           className="inline-flex w-full justify-center rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-semibold transition hover:border-white/30 hover:bg-white/10"
         >
           Join Support Server

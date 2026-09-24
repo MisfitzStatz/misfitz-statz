@@ -252,7 +252,7 @@ return (
       </div>
 
       <Link
-        href="https://discord.com/invite/74suQKzBkp"
+        href="https://discord.com/invite/bb9bGA9HW4"
         className="shrink-0 rounded-xl border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold transition hover:border-[#7CFF00]/40 hover:bg-[#7CFF00]/10"
       >
         Contact us

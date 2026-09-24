@@ -45,7 +45,7 @@ return (
   <section className="relative mx-auto flex min-h-[48vh] md:min-h-[58vh] max-w-7xl flex-col items-center justify-center px-5 sm:px-6 text-center">
     <div className="mx-auto mt-6 mb-17 max-w-3xl rounded-3xl border border-yellow-500/20 bg-yellow-500/10 p-5 backdrop-blur-xl">
       <h2 className="text-lg font-bold text-yellow-300">
-        Website Under Active Development
+        Website under maintenance
       </h2>
     </div>
     <div className="absolute h-[420px] w-[420px] rounded-full bg-[#7CFF00]/10 blur-3xl" />
@@ -59,8 +59,8 @@ return (
       </h1>
 
       <p className="mx-auto mb-6 max-w-3xl text-base text-white/70 md:text-lg">
-        Explore soon lore, discover relics, track statistics, dominate
-        leaderboards and become one of the deadliest Misfitz players.
+        See all balance changes, track statistics, dominate leaderboards
+        and flex with your stats with other Misfitz players.
       </p>
 
       <div className="mb-12 flex flex-col items-center justify-center gap-3 sm:mb-16 sm:flex-row">
@@ -78,7 +78,7 @@ return (
       <Link
         key={card.title}
         href={card.href}
-        className="group rounded-3xl border border-white/10 bg-white/5 p-4 md:p-5 backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-[#7CFF00]/40 hover:bg-white/10"
+        className="group rounded-3xl border border-white/10 bg-white/5 p-4 md:p-5 backdrop-blur-xl transition duration-300 hover:border-[#7CFF00]/40 hover:bg-white/10"
       >
         <h3 className="mb-2 text-lg font-bold md:text-xl">{card.title}</h3>
         <p className="text-sm leading-relaxed text-white/65 md:text-[15px]">

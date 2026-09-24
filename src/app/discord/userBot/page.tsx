@@ -226,7 +226,7 @@ return (
         <p className="mt-3 text-white/70">
           The best way to get fast support is to join our{" "}
           <Link
-            href="https://discord.gg/jwSeHD9BrA"
+            href="https://discord.gg/bb9bGA9HW4"
             className="underline hover:text-white"
           >
             Support Server

@@ -1,3 +1,16 @@
+export type BalanceChangeType =
+  | "changed"
+  | "reduced"
+  | "increased";
+
+export type MisfitStat =
+  | "attack"
+  | "hp"
+  | "damage"
+  | "speed"
+  | "reload"
+  | "range";
+
 export interface Misfit {
   id: string;
   name: string;
@@ -10,13 +23,28 @@ export interface Misfit {
     hp: number;
     damage: number;
     speed: number;
+    reload: number;
     range: number;
   };
 
   abilities: {
     attack: string;
     ultimate: string;
+    ability: string;
   };
+
+  balanceChanges?: {
+    version: string;
+    date?: string;
+
+    changes: {
+      type: BalanceChangeType;
+      stat?: MisfitStat;
+      oldValue?: string | number;
+      newValue?: string | number;
+      description: string;
+    }[];
+  }[];
 
   image: string;
 

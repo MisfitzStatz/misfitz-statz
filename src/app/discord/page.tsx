@@ -20,7 +20,7 @@ const resources = [
   {
     title: "Support",
     desc: "Get help for Misfitz Statz Bot",
-    href: "https://discord.gg/jwSeHD9BrA",
+    href: "https://discord.gg/bb9bGA9HW4",
   },
   {
     title: "Privacy Policy",
