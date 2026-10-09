@@ -55,9 +55,11 @@ const mobileNavigation = [
   {
     title: "Leaderboards",
     items: [
-      { label: "Top Relic Extractor", href: "/leaderboards/relics" },
-      { label: "Most Deaths",         href: "/leaderboards/deaths" },
-      { label: "Highest Playtime",    href: "/leaderboards/playtime" },
+      { label: "Top Relic Extractor", href: "/leaderboards/relics_extracted/all-time" },
+      { label: "Most Deaths",         href: "/leaderboards/deaths/all-time" },
+      { label: "Highest Playtime",    href: "/leaderboards/playtime/all-time" },
+      { label: "Biggest extraction",  href: "/leaderboards/biggest_extraction/all-time" },
+      { label: "Bots killed",         href: "/leaderboards/bots_killed/all-time" },
     ],
   },
   {
@@ -116,9 +118,11 @@ const navigation = [
     title: "Leaderboards",
     color: "#00D9FF",
     items: [
-      { label: "Top Relic Extractor", href: "/leaderboards/relics" },
-      { label: "Most Deaths",         href: "/leaderboards/deaths" },
-      { label: "Highest Playtime",    href: "/leaderboards/playtime" },
+      { label: "Top Relic Extractor", href: "/leaderboards/relics_extracted/all-time" },
+      { label: "Most Deaths",         href: "/leaderboards/deaths/all-time" },
+      { label: "Highest Playtime",    href: "/leaderboards/playtime/all-time" },
+      { label: "Biggest extraction",  href: "/leaderboards/biggest_extraction/all-time" },
+      { label: "Bots killed",         href: "/leaderboards/bots_killed/all-time" },
     ],
   },
   {
