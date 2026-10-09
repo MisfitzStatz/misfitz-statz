@@ -56,7 +56,6 @@ const mobileNavigation = [
     title: "Leaderboards",
     items: [
       { label: "Top Relic Extractor", href: "/leaderboards/relics" },
-      { label: "Most Killers",        href: "/leaderboards/kills" },
       { label: "Most Deaths",         href: "/leaderboards/deaths" },
       { label: "Highest Playtime",    href: "/leaderboards/playtime" },
     ],
@@ -65,7 +64,6 @@ const mobileNavigation = [
     title: "Game",
     items: [
       {label: "Characters",   href: "/game/misfits"},
-      { label: "Meta Stats",  href: "/game/meta" },
       {label: "Relics",       href: "https://misfitz.fandom.com/wiki/Relics"},
       {label: "Map",          href: "https://misfitz.fandom.com/wiki/Zero_City"},
       {label: "Sneak Peeks",  href: "/game/sneak-peeks"},
@@ -99,7 +97,6 @@ const navigation = [
     color: "#7CFF00",
     items: [
       { label: "Characters",  href: "/game/misfits" },
-      { label: "Meta Stats",  href: "/game/meta" },
       { label: "Relics",      href: "https://misfitz.fandom.com/wiki/Relics" },
       { label: "Map",         href: "https://misfitz.fandom.com/wiki/Zero_City" },
       { label: "Sneak Peeks", href: "/game/sneak-peeks" },
@@ -107,7 +104,7 @@ const navigation = [
   },
   {
     title: "Version",
-    color: "#7CFF00",
+    color: "#00D9FF",
     items: [
       { label: "Antihero Studios",    href: "/version/antiherostudios" },
       { label: "Game",                href: "/version/game" },
@@ -120,7 +117,6 @@ const navigation = [
     color: "#00D9FF",
     items: [
       { label: "Top Relic Extractor", href: "/leaderboards/relics" },
-      { label: "Most Killers",        href: "/leaderboards/kills" },
       { label: "Most Deaths",         href: "/leaderboards/deaths" },
       { label: "Highest Playtime",    href: "/leaderboards/playtime" },
     ],
@@ -144,11 +140,13 @@ return (
   )}
   <div className="relative flex w-full items-center px-6 py-3 lg:px-12">
     <div className="flex items-center gap-4">
-      <img
-        src="/logo.png"
-        alt="Misfitz Logo"
-        className="h-12 w-auto drop-shadow-[0_0_18px_rgba(124,255,0,0.45)]"
-      />
+      <a href="/" aria-label="Go to homepage">
+        <img
+          src="/logo.png"
+          alt="Misfitz Logo"
+          className="h-12 w-auto drop-shadow-[0_0_18px_rgba(124,255,0,0.45)]"
+        />
+      </a>
 
       <div className="hide-under-1050">
         <p className="text-xl font-black tracking-widest text-[#7CFF00]">
@@ -299,90 +297,121 @@ return (
         )}
       </button>
 
-      {!loggedIn ? (
-        <button
-          onClick={() => setShowLoginModal(true)}
-          className="rounded-xl border border-white/10 bg-white/5 px-5 py-2 transition hover:bg-white/10"
-        >
-          Sign In
-        </button>
-      ) : (
-        <>
-          <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="rounded-xl border border-white/10 bg-white/5 px-5 py-2 transition hover:bg-white/10"
-          >
-            Account
-          </button>
-          {menuOpen && (
-            <div className="absolute right-6 top-full mt-3 w-56 rounded-2xl border border-white/10 bg-[#111827]/95 p-2 shadow-2xl backdrop-blur-xl">
-              <a
-                href="/settings"
-                onClick={() => setMenuOpen(false)}
-                className="block rounded-xl px-3 py-2 hover:bg-white/5"
-              >
-                Settings
-              </a>
-              <a
-                href="/verification"
-                onClick={() => setMenuOpen(false)}
-                className="block rounded-xl px-3 py-2 hover:bg-white/5"
-              >
-                Verification
-              </a>
-              <a
-                href="/redeem"
-                onClick={() => setMenuOpen(false)}
-                className="block rounded-xl px-3 py-2 hover:bg-white/5"
-              >
-                Redeem a Code
-              </a>
-              <button
-                onClick={handleLogout}
-                className="mt-2 w-full rounded-xl px-3 py-2 text-left text-red-400 hover:bg-red-500/10"
-              >
-                Logout
-              </button>
-            </div>
-          )}
-        </>
-      )}
-    </div>
+    <button
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="rounded-xl border border-white/10 bg-white/5 px-5 py-2 transition hover:bg-white/10"
+    >
+      Account
+    </button>
 
-    <div className="relative ml-8 hidden xl:block">
-              {!loggedIn ? (
-          <button
-            onClick={() => {
-              setMobileMenuOpen(false);
-              setShowLoginModal(true);
-            }}
-              className="rounded-xl border border-white/10 bg-white/5 px-5 py-2 transition hover:bg-white/10"
-          >
-            Sign In
-          </button> 
-            ) : (
-              <>
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="rounded-xl border border-white/10 bg-white/5 px-5 py-2 transition hover:bg-white/10"
-        >
-          Account
-        </button>
+    {menuOpen && (
+      <div className="absolute right-6 top-full mt-3 w-56 rounded-2xl border border-white/10 bg-[#111827]/95 p-2 shadow-2xl backdrop-blur-xl">
+        {!loggedIn ? (
+          <>
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                setShowLoginModal(true);
+              }}
+              className="block w-full rounded-xl px-3 py-2 text-left hover:bg-white/5"
+            >
+              Sign In
+            </button>
 
-        {menuOpen && (
-          <div className="absolute right-0 mt-3 w-56 rounded-2xl border border-white/10 bg-[#111827]/95 p-2 shadow-2xl backdrop-blur-xl">
             <a
               href="/settings"
+              onClick={() => setMenuOpen(false)}
               className="block rounded-xl px-3 py-2 hover:bg-white/5"
             >
               Settings
             </a>
+          </>
+        ) : (
+          <>
+            <a
+              href="/settings"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-3 py-2 hover:bg-white/5"
+            >
+              Settings
+            </a>
+
             <a
               href="/verification"
+              onClick={() => setMenuOpen(false)}
               className="block rounded-xl px-3 py-2 hover:bg-white/5"
             >
               Verification
             </a>
+{/*
+             <a
+              href="/redeem"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-3 py-2 hover:bg-white/5"
+            >
+              Redeem a Code
+            </a>
+*/}
+            <button
+              onClick={handleLogout}
+              className="mt-2 w-full rounded-xl px-3 py-2 text-left text-red-400 hover:bg-red-500/10"
+            >
+              Logout
+            </button>
+          </>
+        )}
+      </div>
+    )}
+    </div>
+
+    <div className="relative ml-8 hidden xl:block">
+    <button
+      onClick={() => setMenuOpen(!menuOpen)}
+      className="rounded-xl border border-white/10 bg-white/5 px-5 py-2 transition hover:bg-white/10"
+    >
+      Account
+    </button>
+
+    {menuOpen && (
+      <div className="absolute right-0 mt-3 w-56 rounded-2xl border border-white/10 bg-[#111827]/95 p-2 shadow-2xl backdrop-blur-xl">
+        {!loggedIn ? (
+          <>
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                setShowLoginModal(true);
+              }}
+              className="block w-full rounded-xl px-3 py-2 text-left hover:bg-white/5"
+            >
+              Sign In
+            </button>
+
+            <a
+              href="/settings"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-3 py-2 hover:bg-white/5"
+            >
+              Settings
+            </a>
+          </>
+        ) : (
+          <>
+            <a
+              href="/settings"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-3 py-2 hover:bg-white/5"
+            >
+              Settings
+            </a>
+
+            <a
+              href="/verification"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-3 py-2 hover:bg-white/5"
+            >
+              Verification
+            </a>
+{/*
             <a
               href="/redeem"
               onClick={() => setMenuOpen(false)}
@@ -390,15 +419,16 @@ return (
             >
               Redeem a Code
             </a>
+*/}
             <button
               onClick={handleLogout}
               className="mt-2 w-full rounded-xl px-3 py-2 text-left text-red-400 hover:bg-red-500/10"
             >
               Logout
             </button>
-          </div>
+          </>
         )}
-      </>
+      </div>
     )}
     </div>
   </div>

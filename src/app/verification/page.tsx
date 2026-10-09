@@ -159,11 +159,11 @@ export default function VerificationPage() {
       );
 
       setTimeLeft(
-        5 * 60
+        7 * 60
       );
 
       setVerificationMessage(
-        "Verification started. Extract exactly one relic, then check your verification."
+        "Verification started. Extract exactly one relic. Go back to lobby, then check your verification."
       );
 
     } catch (error: any) {

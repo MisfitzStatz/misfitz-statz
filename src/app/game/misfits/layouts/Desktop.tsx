@@ -141,6 +141,13 @@ export default function Desktop({
               />
 
               <StatBar
+                label="Reload"
+                value={selected.stats.reload}
+                maxValue={8}
+                suffix=" ammo/s"
+              />
+
+              <StatBar
                 label="Range"
                 value={selected.stats.range}
                 maxValue={11}
@@ -164,25 +171,77 @@ export default function Desktop({
 
   {/* Patch History */}
 
-  <section className="rounded-3xl border border-neutral-800 bg-neutral-900/40 p-6">
+{/* Patch History */}
+<section className="rounded-3xl border border-neutral-800 bg-neutral-900/40 p-6">
+  <h2 className="mb-6 text-2xl font-bold">
+    Patch History
+  </h2>
 
-    <h2 className="mb-6 text-2xl font-bold">
-      Patch History
-    </h2>
+  <div className="space-y-4">
+    {selected.balanceChanges?.map((patch, index) => (
+      <div
+        key={`${patch.version}-${index}`}
+      >
+        <div className="space-y-3">
+          {patch.changes.map((change, changeIndex) => {
+            const typeColor =
+              change.type === "increased"
+                ? "text-green-400 border-green-400/30 bg-green-400/5"
+                : change.type === "reduced"
+                  ? "text-red-400 border-red-400/30 bg-red-400/5"
+                  : "text-yellow-400 border-yellow-400/30 bg-yellow-400/5";
 
-    <div className="rounded-2xl border border-dashed border-neutral-700 bg-neutral-950/60 p-8 text-center">
+            return (
+              <div
+                key={changeIndex}
+                className={`rounded-xl border p-4 ${typeColor}`}
+              >
+                {/* Type / Stat / Date */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-xs font-bold uppercase tracking-wider">
+                    {change.type}
+                  </span>
 
-      <p className="text-lg font-semibold text-neutral-300">
-        Coming Soon
-      </p>
+                  {change.stat && (
+                    <span className="text-sm font-semibold text-neutral-200">
+                      {change.stat}
+                    </span>
+                  )}
 
-      <p className="mt-2 text-sm text-neutral-500">
-        Balance changes and version history will appear here.
-      </p>
+                  {patch.date && (
+                    <span className="text-xs text-neutral-500">
+                      {patch.date}
+                    </span>
+                  )}
+                </div>
 
-    </div>
+                {/* Old → New */}
+                {(change.oldValue !== undefined ||
+                  change.newValue !== undefined) && (
+                  <div className="mt-3 text-sm font-medium text-white">
+                    {change.oldValue !== undefined
+                      ? change.oldValue
+                      : "?"}{" "}
+                    →
+                    {" "}
+                    {change.newValue !== undefined
+                      ? change.newValue
+                      : "?"}
+                  </div>
+                )}
 
-  </section>
+                {/* Description */}
+                <p className="mt-2 text-sm leading-relaxed text-neutral-400">
+                  {change.description}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
   {/* Abilities */}
 
@@ -217,6 +276,17 @@ export default function Desktop({
 
       </div>
 
+      <div>
+
+        <h3 className="mb-2 text-lg font-bold text-lime-400">
+          Ability
+        </h3>
+
+        <p className="leading-relaxed text-neutral-300">
+        {selected.status === "teaser" ? "Coming Soon"  : selected.abilities.ability}
+        </p>
+
+      </div>
     </div>
 
   </section>

@@ -4,12 +4,12 @@ export type BalanceChangeType =
   | "increased";
 
 export type MisfitStat =
-  | "attack"
-  | "hp"
-  | "damage"
-  | "speed"
-  | "reload"
-  | "range";
+  | "Attack"
+  | "Hp"
+  | "Damage"
+  | "Speed"
+  | "Reload"
+  | "Range";
 
 export interface Misfit {
   id: string;

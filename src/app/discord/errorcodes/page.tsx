@@ -93,6 +93,12 @@ const errorCodes: ErrorCode[] = [
     message: "This player's profile is private.",
     category: "Accounts",
   },
+  {
+    http: 411,
+    code: "ACCOUNT_BANNED",
+    message: "This account is either banned from Misfitz or MisfitzStatz.",
+    category: "Accounts",
+  },
   // Player
   {
     http: 404,
@@ -112,7 +118,12 @@ const errorCodes: ErrorCode[] = [
     message: "This account is unavailable.",
     category: "Player",
   },
-
+  {
+    http: 417,
+    code: "PLAYER_NOT_ENOUGH_STATS",
+    message: "Player has not enough stats to be displayed.",
+    category: "Player",
+  },
   // Authentication
   {
     http: 401,
@@ -144,6 +155,12 @@ const errorCodes: ErrorCode[] = [
     http: 500,
     code: "INTERNAL_ERROR",
     message: "An internal server error occurred.",
+    category: "Generic",
+  },
+  {
+    http: 503,
+    code: "MAINTENANCE",
+    message: "The server is currently in maintenance.",
     category: "Generic",
   },
   {

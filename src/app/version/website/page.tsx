@@ -3,16 +3,30 @@
 import { useEffect, useState } from "react";
 
 const latestUpdate = {
-  version: "v0.5",
+  version: "v0.8",
+  date: "9th October 2026",
+  changes: [
+    "Rework: /stats and /leaderboard and hompage",
+    "Added:  tapping on the logo redirects to /stats",
+    "Added:  Achievements, season stats",
+    "Added:  All-time and season leaderboards",
+    "Added:  Share player stats with the copy button",
+    "Added:  /game/misfits show balance changes and more",
+    "Fixed:  Report players on /stats",
+    "Fixed:  Screen rendering won't cause ratelimits",
+    "Fixed:  Discord support server invite link"
+  ],
+};
+const oldUpdates = [
+  {
   date: "28th August 2026",
   changes: [
     "Added: Sneak Peek page",
     "Fixed: Support Server invite",
     "Fixed: linking in Legal page",
     "Fixed: Description for installing Bot",
-  ],
-};
-const oldUpdates = [
+    ],
+  },
   {
     date: "27th August 2026",
     changes: [

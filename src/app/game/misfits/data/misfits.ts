@@ -30,26 +30,13 @@ export const MISFITS: Misfit[] = [
         changes: [
           {
             type: "changed",
-            stat: "attack",
+            stat: "Attack",
             oldValue: "4 shots",
             newValue: "downable bar",
             description: "Downable bar instead of 4 shots",
           },
         ],
-      },
-      {
-        version: "PLACEHOLDER",
-        date: "PLACEHOLDER",
-        changes: [
-          {
-            type: "increased",
-            stat: "hp",
-            oldValue: "PLACEHOLDER",
-            newValue: "PLACEHOLDER",
-            description: "PLACEHOLDER",
-          },
-        ],
-      },
+      }
     ],
 
     image: "/misfitz/ray.png",
@@ -86,26 +73,13 @@ export const MISFITS: Misfit[] = [
         changes: [
           {
             type: "changed",
-            stat: "attack",
+            stat: "Attack",
             oldValue: "Dash to target",
             newValue: "Dash and mark nearby enemies",
             description: "Dash to a target and moves you through nearby targets. Marked targets take more damage.",
           },
         ],
-      },
-      {
-        version: "PLACEHOLDER",
-        date: "PLACEHOLDER",
-        changes: [
-          {
-            type: "changed",
-            stat: "attack",
-            oldValue: "PLACEHOLDER",
-            newValue: "PLACEHOLDER",
-            description: "PLACEHOLDER",
-          },
-        ],
-      },
+      }
     ],
 
     image: "/misfitz/rush.png",
@@ -138,11 +112,11 @@ export const MISFITS: Misfit[] = [
     balanceChanges: [
       {
         version: "PA6",
-        date: "25th Placeholder",
+        date: "25th Sep 2026",
         changes: [
           {
             type: "changed",
-            stat: "attack",
+            stat: "Attack",
             oldValue: "pulling enemies to a center point",
             newValue: "sound bomb that pulls enemies in and explodes",
             description: "Throw a sound bomb that pulls enemies in and explodes",
@@ -155,7 +129,7 @@ export const MISFITS: Misfit[] = [
         changes: [
           {
             type: "increased",
-            stat: "attack",
+            stat: "Attack",
             oldValue: "3",
             newValue: "6",
             description: "6 instead of 3 shots",
@@ -199,26 +173,13 @@ export const MISFITS: Misfit[] = [
         changes: [
           {
             type: "increased",
-            stat: "attack",
+            stat: "Attack",
             oldValue: "4",
             newValue: "8",
             description: "8 instead of 4 shots",
           },
         ],
-      },
-      {
-        version: "PLACEHOLDER",
-        date: "PLACEHOLDER",
-        changes: [
-          {
-            type: "increased",
-            stat: "range",
-            oldValue: "PLACEHOLDER",
-            newValue: "PLACEHOLDER",
-            description: "PLACEHOLDER",
-          },
-        ],
-      },
+      }
     ],
 
     image: "/misfitz/gloss.png",
@@ -255,7 +216,7 @@ export const MISFITS: Misfit[] = [
         changes: [
           {
             type: "increased",
-            stat: "attack",
+            stat: "Attack",
             oldValue: "2",
             newValue: "3",
             description: "3 instead of 2",
@@ -268,7 +229,7 @@ export const MISFITS: Misfit[] = [
         changes: [
           {
             type: "changed",
-            stat: "attack",
+            stat: "Attack",
             oldValue: "Ultimate: root enemies",
             newValue: "ink cloud",
             description: "Throwable ink Cloud. Enemies inside can't see you or your teammate and can't autoaim",
@@ -309,28 +270,8 @@ export const MISFITS: Misfit[] = [
         version: "PLACEHOLDER",
         date: "PLACEHOLDER",
         changes: [
-          {
-            type: "changed",
-            stat: "damage",
-            oldValue: "PLACEHOLDER",
-            newValue: "PLACEHOLDER",
-            description: "PLACEHOLDER",
-          },
         ],
-      },
-      {
-        version: "PLACEHOLDER",
-        date: "PLACEHOLDER",
-        changes: [
-          {
-            type: "increased",
-            stat: "hp",
-            oldValue: "PLACEHOLDER",
-            newValue: "PLACEHOLDER",
-            description: "PLACEHOLDER",
-          },
-        ],
-      },
+      }
     ],
 
     image: "/misfitz/drip.png",
