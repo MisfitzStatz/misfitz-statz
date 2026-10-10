@@ -13,7 +13,6 @@ import {
 
 const PROFILE_PICTURES = [
   "/stats/pfp/beat.png",
-  "/stats/pfp/fang.png",
   "/stats/pfp/ray.png",
   "/stats/pfp/rush.png",
   "/stats/pfp/shade.png",
