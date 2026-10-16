@@ -1,4 +1,4 @@
-const BACKEND_URL = "https://api.misfitzstatz.com";
+const BACKEND_URL = "http://localhost:3000";
 
 const PROXY_PREFIXES = [
   "/api/auth/",

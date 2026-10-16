@@ -2,6 +2,7 @@
 
 import StatsSearch from "./components/StatsSearch";
 import Overview from "./components/overview/Overview";
+import Heroes from "./components/heroes/Heroes";
 import MatchStats from "./components/matchstats/MatchStats";
 import Relics from "./components/relics/Relics";
 import Gears from "./components/gears/Gears";
@@ -59,9 +60,13 @@ export default function StatsPage() {
           )}
 
           {data && !loading && !error && (
+            <Heroes data={data} />
+          )}
+
+          {data && !loading && !error && (
             <MatchStats data={data} />
           )}
-  
+
           {data && !loading && !error && (
             <Relics data={data} />
           )}
