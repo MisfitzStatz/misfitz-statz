@@ -234,7 +234,7 @@ export function useStats(): UseStatsResult {
 
           if (response.status === 403) {
             throw new Error(
-              "Player ID is unavailable."
+              "Player is banned from Misfitz."
             );
           }
 
