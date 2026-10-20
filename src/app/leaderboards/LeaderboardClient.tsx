@@ -24,15 +24,17 @@ interface LeaderboardResponse {
 
 const CATEGORIES = [
   { id: "relics_extracted", label: "Top Relic Extractors" },
-  { id: "playtime", label: "Most Playtime" },
   { id: "deaths", label: "Most Deaths" },
-  { id: "bots_killed", label: "Most Bots Killed" },
+  { id: "playtime", label: "Highest Playtime" },
+  { id: "bots_killed", label: "Bots Killed" },
   { id: "biggest_extraction", label: "Biggest Extraction" },
 ] as const;
 
 const SEASONS = [
   { id: "all-time", label: "All-Time" },
   { id: "genesis", label: "Genesis" },
+  { id: "arrival", label: "Arrival" },
+
 ] as const;
 
 const CATEGORY_ALIASES: Record<string, string> = {

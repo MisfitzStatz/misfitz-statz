@@ -3,21 +3,30 @@
 import { useEffect, useState } from "react";
 
 const latestUpdate = {
-  version: "v0.8",
-  date: "9th October 2026",
+  version: "v0.9",
+  date: "20th October 2026",
   changes: [
-    "Rework: /stats and /leaderboard and hompage",
-    "Added:  tapping on the logo redirects to /stats",
-    "Added:  Achievements, season stats",
-    "Added:  All-time and season leaderboards",
-    "Added:  Share player stats with the copy button",
-    "Added:  /game/misfits show balance changes and more",
-    "Fixed:  Report players on /stats",
-    "Fixed:  Screen rendering won't cause ratelimits",
-    "Fixed:  Discord support server invite link"
+    "Added:  Dev-mode. Enable it in settings. Use it with caution!",
+    "Rework: Copy feature for playerID",
+    "Fixed:  Report player throw error 530",
+    "Fixed:  leaderboard selector order"
   ],
 };
 const oldUpdates = [
+  {
+    date: "9th October 2026",
+    changes: [
+      "Rework: /stats and /leaderboard and hompage",
+      "Added:  tapping on the logo redirects to /stats",
+      "Added:  Achievements, season stats",
+      "Added:  All-time and season leaderboards",
+      "Added:  Share player stats with the copy button",
+      "Added:  /game/misfits show balance changes and more",
+      "Fixed:  Report players on /stats",
+      "Fixed:  Screen rendering won't cause ratelimits",
+      "Fixed:  Discord support server invite link"
+    ],
+  },
   {
   date: "28th August 2026",
   changes: [

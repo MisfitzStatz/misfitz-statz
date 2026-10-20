@@ -255,6 +255,12 @@ export function useStats(): UseStatsResult {
             );
           }
 
+          if (response.status >= 530) {
+            throw new Error(
+              "An error occurred while transmitting data."
+            );
+          }
+
           if (response.status >= 500) {
             throw new Error(
               "The stats server is currently unavailable."
