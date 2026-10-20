@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/lib/AuthContext";
 import { authFetch } from "@/lib/auth";
+import { API_URL } from "@/lib/api";
 
 interface ReportModalProps {
 open: boolean;
@@ -96,7 +97,7 @@ setMessage("");
 
 try {
   const response = await authFetch(
-    "/api/report",
+    `${API_URL}/api/report`,
     {
       method: "POST",
       credentials: "include",
