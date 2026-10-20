@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Check, Copy, Flag } from "lucide-react";
+import { useState } from "react";
 import AchievementDisplay from "./AchievementsDisplay";
 import type { OverviewViewData } from "./Overview";
 
@@ -9,6 +10,7 @@ interface TabletOverviewProps {
   data: OverviewViewData;
   copied: boolean;
   onCopyProfileLink: () => void;
+  onCopyPlayerId: () => void;
   onReport: () => void;
 }
 
@@ -36,8 +38,10 @@ export default function TabletOverview({
   data,
   copied,
   onCopyProfileLink,
+  onCopyPlayerId,
   onReport,
 }: TabletOverviewProps) {
+  const [showCopyMenu, setShowCopyMenu] = useState(false);
   return (
     <div className="w-full">
       <div className="rounded-2xl border border-cyan-300/25 bg-[#111b2b]/95 px-7 py-7">
@@ -80,19 +84,42 @@ export default function TabletOverview({
                     {data.playerId}
                   </span>
 
+                  <div className="relative">
                   <button
                     type="button"
-                    onClick={onCopyProfileLink}
+                    onClick={() => setShowCopyMenu((open) => !open)}
                     className="flex h-5 w-5 shrink-0 items-center justify-center text-white/45 transition hover:text-white"
-                    title="Copy profile link"
-                    aria-label="Copy profile link"
+                    title="Copy options"
+                    aria-label="Copy options"
+                    aria-expanded={showCopyMenu}
                   >
-                    {copied ? (
-                      <Check size={13} />
-                    ) : (
-                      <Copy size={13} />
-                    )}
+                    {copied ? <Check size={13} /> : <Copy size={13} />}
                   </button>
+                  {showCopyMenu && (
+                    <div className="absolute right-0 top-full z-50 mt-2 min-w-44 overflow-hidden rounded-lg border border-cyan-300/25 bg-[#111b2b] p-1 shadow-xl">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onCopyPlayerId();
+                          setShowCopyMenu(false);
+                        }}
+                        className="block w-full rounded-md px-3 py-2 text-left text-xs text-white/85 transition hover:bg-cyan-300/10 hover:text-white"
+                      >
+                        Copy Player ID
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onCopyProfileLink();
+                          setShowCopyMenu(false);
+                        }}
+                        className="block w-full rounded-md px-3 py-2 text-left text-xs text-white/85 transition hover:bg-cyan-300/10 hover:text-white"
+                      >
+                        Copy Stats Link
+                      </button>
+                    </div>
+                  )}
+                </div>
                 </div>
               </div>
             </div>

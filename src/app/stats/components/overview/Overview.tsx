@@ -168,62 +168,56 @@ export default function Overview({ data }: OverviewProps) {
 
   const overviewData = createOverviewData(data, profilePicture);
 
-  const handleCopyProfileLink = () => {
-  const url = `https://misfitzstatz.com/stats/#${overviewData.playerId}`;
-    // Modern Clipboard API
-    if (navigator.clipboard?.writeText) {
-        navigator.clipboard
-        .writeText(url)
-        .then(() => {
-            setCopied(true);
-
-            window.setTimeout(() => {
-            setCopied(false);
-            }, 2000);
-        })
-        .catch(() => {
-            setCopied(false);
-        });
-
-        return;
-    }
-
-    // iOS / Safari fallback
-    const textarea = document.createElement("textarea");
-
-    textarea.value = url;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.left = "-9999px";
-    textarea.style.top = "0";
-    textarea.style.opacity = "0";
-
-    document.body.appendChild(textarea);
-
-    textarea.focus();
-    textarea.select();
-    textarea.setSelectionRange(0, textarea.value.length);
-
+  const copyText = async (text: string) => {
     let copiedSuccessfully = false;
 
-    try {
-        copiedSuccessfully = document.execCommand("copy");
-    } catch {
+    if (navigator.clipboard?.writeText) {
+      try {
+        await navigator.clipboard.writeText(text);
+        copiedSuccessfully = true;
+      } catch {
         copiedSuccessfully = false;
+      }
     }
 
-    textarea.remove();
+    if (!copiedSuccessfully) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      textarea.style.top = "0";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.focus();
+      textarea.select();
+      textarea.setSelectionRange(0, textarea.value.length);
+
+      try {
+        copiedSuccessfully = document.execCommand("copy");
+      } catch {
+        copiedSuccessfully = false;
+      }
+
+      textarea.remove();
+    }
 
     if (!copiedSuccessfully) {
-        setCopied(false);
-        return;
+      setCopied(false);
+      return;
     }
 
     setCopied(true);
+    window.setTimeout(() => setCopied(false), 2000);
+  };
 
-    window.setTimeout(() => {
-        setCopied(false);
-    }, 2000);
+  const handleCopyPlayerId = () => {
+    void copyText(overviewData.playerId);
+  };
+
+  const handleCopyProfileLink = () => {
+    const url = `https://misfitzstatz.com/stats/${encodeURIComponent(overviewData.playerId)}`;
+    void copyText(url);
   };
 
     const handleOpenReport = () => {
@@ -241,6 +235,7 @@ export default function Overview({ data }: OverviewProps) {
           data={overviewData}
           copied={copied}
           onCopyProfileLink={handleCopyProfileLink}
+          onCopyPlayerId={handleCopyPlayerId}
           onReport={handleOpenReport}
         />
       </div>
@@ -250,6 +245,7 @@ export default function Overview({ data }: OverviewProps) {
           data={overviewData}
           copied={copied}
           onCopyProfileLink={handleCopyProfileLink}
+          onCopyPlayerId={handleCopyPlayerId}
           onReport={handleOpenReport}
         />
       </div>
@@ -259,6 +255,7 @@ export default function Overview({ data }: OverviewProps) {
           data={overviewData}
           copied={copied}
           onCopyProfileLink={handleCopyProfileLink}
+          onCopyPlayerId={handleCopyPlayerId}
           onReport={handleOpenReport}
         />
       </div>

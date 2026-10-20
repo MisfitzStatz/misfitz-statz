@@ -49,20 +49,61 @@ export async function authFetch(
   return response;
 }
 
+
 export async function getCurrentAccount(): Promise<Account | null> {
-  const response = await fetch(`${API_URL}/auth/me`, {
-    credentials: "include",
-    cache: "no-store"
-  });
+  const url = `${API_URL}/auth/me`;
 
-  const data: MeResponse = await response.json();
+  console.info("[AUTH DEBUG] API_URL:", API_URL);
+  console.info("[AUTH DEBUG] Request URL:", url);
+  console.info("[AUTH DEBUG] Browser origin:", window.location.origin);
 
-  if (!data.loggedIn) {
-    return null;
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      credentials: "include",
+      cache: "no-store",
+    });
+
+    console.info("[AUTH DEBUG] HTTP status:", response.status);
+    console.info(
+      "[AUTH DEBUG] Response URL:",
+      response.url
+    );
+    console.info(
+      "[AUTH DEBUG] Content-Type:",
+      response.headers.get("content-type")
+    );
+
+    const body = await response.text();
+    console.info("[AUTH DEBUG] Response body:", body);
+
+    if (!response.ok) {
+      throw new Error(
+        `GET /auth/me failed with HTTP ${response.status}: ${body}`
+      );
+    }
+
+    let data: MeResponse;
+
+    try {
+      data = JSON.parse(body) as MeResponse;
+    } catch {
+      throw new Error(
+        "GET /auth/me returned invalid JSON."
+      );
+    }
+
+    if (!data.loggedIn) {
+      return null;
+    }
+
+    return data.account ?? null;
+  } catch (error) {
+    console.error("[AUTH DEBUG] Request failed:", error);
+    throw error;
   }
-
-  return data.account ?? null;
 }
+
 
 export async function devLogin(): Promise<void> {
   const response = await fetch(
