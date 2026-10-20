@@ -1,4 +1,4 @@
-const BACKEND_URL = process.env.NEXT_PUBLIC_API_URL ?? "https://api.misfitzstatz.com";
+const BACKEND_URL = "https://api.misfitzstatz.com";
 
 const PROXY_PREFIXES = [
   "/api/auth/",
