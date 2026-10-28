@@ -8,11 +8,17 @@ return (
         MISFITZ STATZ
       </p>
       <p className="mt-2 text-sm text-white/45">
-        Not owned or affiliated with Antihero Studios
+        Not owned or operated by Antihero Studios
       </p>
     </div>
 
     <div className="flex flex-wrap items-center gap-6 text-sm text-white/60">
+      <a
+        href="/settings"
+        className="hide-under-1050 transition hover:text-[#7CFF00]"
+      >
+        About
+      </a>
       <a
         href="https://www.antiherostudios.com/en?creatorCode=SCHARKY"
         target="_blank"
@@ -22,12 +28,24 @@ return (
         Register for Playtests
       </a>
       <a
+        href="/settings"
+        className="hide-under-1050 transition hover:text-[#7CFF00]"
+      >
+        Settings
+      </a>
+      <a
         href="https://discord.gg/bb9bGA9HW4"
         target="_blank"
         rel="noopener noreferrer"
         className="transition hover:text-[#7CFF00]"
       >
         Support Server
+      </a>
+      <a
+        href="/status"
+        className="transition hover:text-[#7CFF00]"
+      >
+        Status
       </a>
       <a
         href="/privacy"
@@ -69,6 +87,9 @@ return (
         Support Server
       </a>
       <div className="flex justify-center gap-6 text-white/60">
+        <a href="/settings" className="transition hover:text-[#7CFF00]">
+          Settings
+        </a>
         <a href="/privacy" className="transition hover:text-[#7CFF00]">
           Privacy
         </a>
