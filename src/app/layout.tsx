@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import DeviceGuard from "../components/DeviceGuard";
-import WebMCPProvider from "@/components/WebMCPProvider";
-import DevModeTools from "@/components/DevModeTools";
-import { AuthProvider } from "@/lib/AuthContext";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://misfitzstatz.com"),
@@ -29,19 +23,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className="min-h-svh bg-[#0B0F19] text-white">
-        <WebMCPProvider />
-        <AuthProvider>
-          <div className="flex min-h-svh flex-col">
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </div>
-          <DevModeTools />
-        </AuthProvider>
+      <body>
+        <div className="site-shell">
+          <main className="site-main">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

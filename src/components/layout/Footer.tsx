@@ -14,12 +14,6 @@ return (
 
     <div className="flex flex-wrap items-center gap-6 text-sm text-white/60">
       <a
-        href="/settings"
-        className="hide-under-1050 transition hover:text-[#7CFF00]"
-      >
-        Settings
-      </a>
-      <a
         href="https://www.antiherostudios.com/en?creatorCode=SCHARKY"
         target="_blank"
         rel="noopener noreferrer"
@@ -34,12 +28,6 @@ return (
         className="transition hover:text-[#7CFF00]"
       >
         Support Server
-      </a>
-      <a
-        href="/status"
-        className="transition hover:text-[#7CFF00]"
-      >
-        Status
       </a>
       <a
         href="/privacy"
@@ -81,9 +69,6 @@ return (
         Support Server
       </a>
       <div className="flex justify-center gap-6 text-white/60">
-        <a href="/settings" className="transition hover:text-[#7CFF00]">
-          Settings
-        </a>
         <a href="/privacy" className="transition hover:text-[#7CFF00]">
           Privacy
         </a>
