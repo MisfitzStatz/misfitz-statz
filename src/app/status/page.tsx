@@ -155,7 +155,7 @@ return (
 
     <p className="text-zinc-400">
       Live service availability and infrastructure
-      status for Misfitz Stats.
+      status for Misfitz Statz.
     </p>
   </div>
 

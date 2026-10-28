@@ -9,9 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: [
         "/hidden/",
-        "/settings/",
-        "/verification/",
-        "/redeem/",
       ],
     },
     sitemap: "https://misfitzstatz.com/sitemap.xml",

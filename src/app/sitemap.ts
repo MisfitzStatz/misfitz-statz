@@ -21,29 +21,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/game/misfits/` },
     { url: `${BASE_URL}/game/sneak-peeks/` },
 
-    // Discord
-    { url: `${BASE_URL}/discord/` },
-    { url: `${BASE_URL}/discord/choose/` },
-    { url: `${BASE_URL}/discord/commands/` },
-    { url: `${BASE_URL}/discord/communityBot/` },
-    { url: `${BASE_URL}/discord/communityBotPlus/` },
-    { url: `${BASE_URL}/discord/userBot/` },
-    { url: `${BASE_URL}/discord/compare/` },
-    { url: `${BASE_URL}/discord/errorcodes/` },
 
     // Public information
-    { url: `${BASE_URL}/credits/` },
     { url: `${BASE_URL}/status/` },
     { url: `${BASE_URL}/privacy/` },
     { url: `${BASE_URL}/terms/` },
     { url: `${BASE_URL}/legal/` },
 
     // Version information
-    { url: `${BASE_URL}/version/` },
     { url: `${BASE_URL}/version/game/` },
     { url: `${BASE_URL}/version/website/` },
-    { url: `${BASE_URL}/version/discord/` },
-    { url: `${BASE_URL}/version/antiherostudios/` },
   ];
 
   const leaderboardPages: MetadataRoute.Sitemap = [

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     title: "Misfitz Statz",
     description: "Track your Misfitz progress, compare players, explore leaderboards and view detailed statistics.",
     url: "https://misfitzstatz.com",
-    siteName: "Misfitz Stats",
+    siteName: "Misfitz Statz",
     images: [{ url: "front.png", width: 1027, height: 310 }],
     locale: "en_US",
     type: "website",

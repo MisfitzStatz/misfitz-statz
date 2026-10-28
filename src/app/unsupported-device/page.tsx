@@ -15,7 +15,7 @@ return (
     Mobile & Tablet Access Blocked
   </h1>
   <p className="mt-4 max-w-xl text-white/70">
-    Misfitz Stats is currently in development.
+    Misfitz Statz is currently in development.
     Due to the current website structure, you device is not supported.
   </p>
   <p className="mt-3 text-sm text-white/50">

@@ -43,7 +43,7 @@ return (
     <p className="mt-0 text-white/70">- achievements</p>
 
     <p className="mt-2 text-center font-mono text-white/70">
-      Misfitz Stats is not responsible for your inGame stats of Misfitz
+      MisfitzStatz is not responsible for your inGame stats of Misfitz
     </p>
     <p className="mt-4 text-white/70">
       Type the following code:

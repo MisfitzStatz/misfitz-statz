@@ -1,27 +1,15 @@
 export const metadata = {
   title: "Terms of Service | MisfitzStatz",
-  description:
-    "Terms and conditions governing the use of MisfitzStatz and its related services.",
+  description: "Terms governing use of the free MisfitzStatz statistics service.",
 };
 
-function TermsSection({
-  id,
-  title,
-  children,
-}: {
-  id: string;
-  title: string;
-  children: React.ReactNode;
-}) {
+type SectionProps = { id: string; title: string; children: React.ReactNode };
+
+function TermsSection({ id, title, children }: SectionProps) {
   return (
     <section id={id} className="scroll-mt-24">
-      <h2 className="mb-6 text-3xl font-bold tracking-tight">
-        {title}
-      </h2>
-
-      <div className="space-y-4 text-sm leading-7 text-zinc-300">
-        {children}
-      </div>
+      <h2 className="mb-5 text-2xl font-bold tracking-tight">{title}</h2>
+      <div className="space-y-4 text-sm leading-7 text-zinc-300">{children}</div>
     </section>
   );
 }
@@ -29,627 +17,255 @@ function TermsSection({
 export default function TermsPage() {
   return (
     <main className="mx-auto max-w-7xl px-5 py-10 sm:px-6 sm:py-16">
-      <div className="mb-16">
-        <h1 className="mb-4 text-4xl font-bold">
-          Terms of Service
-        </h1>
-
-        <p className="text-sm text-zinc-400">
-          Last Updated: 9th October 2026
-        </p>
-
+      <header className="mb-14">
+        <h1 className="mb-4 text-4xl font-bold">Terms of Service</h1>
+        <p className="text-sm text-zinc-500">Last updated: 28 October 2026 - Valid from: 16th November 2026</p>
         <p className="mt-6 max-w-3xl text-zinc-400">
-          These Terms of Service govern access to and use of
-          MisfitzStatz and its related services.
+          These Terms govern access to and use of MisfitzStatz and its related
+          services.
         </p>
-      </div>
+      </header>
 
       <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[260px_1fr] lg:gap-20">
         <aside className="relative h-fit self-start lg:sticky lg:top-28">
           <div className="border-l border-zinc-800 pl-4 sm:pl-6">
-            <p className="mb-5 text-xs uppercase tracking-[0.25em] text-zinc-500 sm:mb-8 sm:tracking-[0.35em]">
-              Table of Contents
-            </p>
-
-            <nav className="flex flex-col gap-3 text-sm sm:gap-4 lg:gap-5">
-              <a href="#acceptance">01 Acceptance of Terms</a>
-              <a href="#service">02 About MisfitzStatz</a>
-              <a href="#eligibility">03 Eligibility</a>
-              <a href="#accounts">04 User Accounts</a>
-              <a href="#leaderboards">05 Leaderboards and Public Profiles</a>
-              <a href="#acceptable-use">06 Acceptable Use</a>
-              <a href="#content">07 Content and Reporting</a>
-              <a href="#enforcement">08 Enforcement Actions</a>
-              <a href="#availability">09 Service Availability</a>
-              <a href="#accuracy">10 Statistics and Data Accuracy</a>
-              <a href="#api">11 API and Data Usage</a>
-              <a href="#commercial">12 Commercial Use and Content Creation</a>
-              <a href="#ip">13 Intellectual Property</a>
-              <a href="#deletion">14 Account Deletion and Historical Data</a>
-              <a href="#liability">15 Limitation of Liability</a>
-              <a href="#changes">16 Changes to the Service and Terms</a>
-              <a href="#contact">17 Contact</a>
+            <p className="mb-5 text-xs uppercase tracking-[0.25em] text-zinc-500">Contents</p>
+            <nav className="flex flex-col gap-3 text-sm">
+              <a href="#scope" className="hover:text-white">1. Scope and service</a>
+              <a href="#accounts" className="hover:text-white">2. Accounts and privacy</a>
+              <a href="#public-data" className="hover:text-white">3. Public data and archives</a>
+              <a href="#acceptable-use" className="hover:text-white">4. Acceptable use</a>
+              <a href="#reports" className="hover:text-white">5. Reports and enforcement</a>
+              <a href="#api" className="hover:text-white">6. API and commercial use</a>
+              <a href="#deletion" className="hover:text-white">7. Account deletion</a>
+              <a href="#availability" className="hover:text-white">8. Availability, liability, and changes</a>
             </nav>
           </div>
         </aside>
 
-        <div className="space-y-14 sm:space-y-20 lg:space-y-24">
-          <TermsSection
-            id="acceptance"
-            title="Acceptance of Terms"
-          >
+        <div className="space-y-12 sm:space-y-16">
+          <TermsSection id="scope" title="1. Scope and service">
+            <h3 className="text-lg font-semibold">1a) Acceptance</h3>
             <p>
-              By accessing or using MisfitzStatz ("the Service"),
-              you agree to be bound by these Terms of Service.
+              By accessing or using MisfitzStatz (the “Service”), you agree to
+              these Terms. If you do not agree, do not use the Service.
             </p>
-
+            <h3 className="text-lg font-semibold">1b) Independent, free service</h3>
             <p>
-              If you do not agree with these Terms, you must not
-              use the Service.
+              MisfitzStatz is an independently operated, free and ad-free
+              community statistics and leaderboard platform for Misfitz. It is
+              not owned or operated by, and is not an official service of,
+              Antihero Studios.
             </p>
-          </TermsSection>
-
-          <TermsSection
-            id="service"
-            title="About MisfitzStatz"
-          >
+            <h3 className="text-lg font-semibold">1c) Features with and without an account</h3>
             <p>
-              MisfitzStatz is an independent fan-made statistics
-              and leaderboard platform for the game Misfitz.
-            </p>
-
-            <p>
-              MisfitzStatz is operated as a community project and
-              is not affiliated with, endorsed by, sponsored by,
-              or officially associated with Antihero Studios.
-            </p>
-
-            <p>
-              MisfitzStatz may provide statistics, leaderboards,
-              player profiles, account linking, achievements,
-              and other related features.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="eligibility"
-            title="Eligibility"
-          >
-            <p>
-              To use account-related features, users must comply
-              with Discord's minimum age requirements and
-              applicable Discord Terms of Service.
-            </p>
-
-            <p>
-              Users are responsible for maintaining access to
-              their Discord account and for any activity performed
-              through their account.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="accounts"
-            title="User Accounts"
-          >
-            <p>
-              Authentication and account-related functionality
-              may be provided through Discord OAuth.
-            </p>
-
-            <p>
-              Users may verify ownership of a Misfitz account
-              through the verification functionality provided by
-              MisfitzStatz.
-            </p>
-
-            <p>
-              Users are responsible for ensuring that they only
-              verify Misfitz accounts they are authorized to link
-              to their MisfitzStatz account.
-            </p>
-
-            <p>
-              Account settings, including available privacy
-              settings, can be managed through the available
-              settings functionality.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="leaderboards"
-            title="Leaderboards and Public Profiles"
-          >
-            <p>
-              MisfitzStatz may display public leaderboards,
-              player profiles, rankings, statistics, and other
-              information derived from Misfitz data.
-            </p>
-
-            <p>
-              A Misfitz Player ID that has not been linked to a
-              MisfitzStatz account is, by default, treated as
-              publicly visible ("Open") and may appear on public
-              leaderboards.
-            </p>
-
-            <p>
-              Available privacy settings may affect the visibility
-              of linked player information where supported.
-            </p>
-
-            <p>
-              A direct association between a Misfitz Player ID
-              and a specific Discord account is not publicly
-              displayed on player profiles.
-            </p>
-
-            <p>
-              Outdated leaderboards may be archived. Archived
-              leaderboards may remain publicly accessible for
-              historical purposes.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="acceptable-use"
-            title="Acceptable Use"
-          >
-            <p>
-              Users must use MisfitzStatz responsibly and must
-              not interfere with the operation, security, or
-              availability of the Service.
-            </p>
-
-            <p>Users agree not to:</p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>
-                Abuse, disrupt, overload, or interfere with the
-                Service.
-              </li>
-
-              <li>
-                Attempt to bypass authentication, security
-                mechanisms, rate limits, cooldowns, or other
-                technical restrictions.
-              </li>
-
-              <li>
-                Attempt unauthorized access to MisfitzStatz
-                systems, infrastructure, accounts, or data.
-              </li>
-
-              <li>
-                Use automated scraping, crawling, or data
-                collection methods to reproduce or extract the
-                MisfitzStatz data set without permission.
-              </li>
-
-              <li>
-                Access non-public data or functionality through
-                unofficial methods.
-              </li>
-
-              <li>
-                Create a public service that mirrors or
-                substantially reproduces MisfitzStatz without
-                permission.
-              </li>
-
-              <li>
-                Use MisfitzStatz data to create a competing
-                commercial service without permission.
-              </li>
-
-              <li>
-                Attempt to impersonate MisfitzStatz or falsely
-                represent a service, account, website, or project
-                as being officially operated or endorsed by
-                MisfitzStatz.
-              </li>
-
-              <li>
-                Use the Service for unlawful purposes or in a way
-                that violates applicable laws.
-              </li>
-            </ul>
-
-            <p>
-              Any technical request limits or rate limits
-              communicated by MisfitzStatz must be respected.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="content"
-            title="Content and Reporting"
-          >
-            <p>
-              MisfitzStatz provides reporting functionality that
-              allows users to report inappropriate, offensive,
-              harmful, or otherwise problematic content or player
-              information.
-            </p>
-
-            <p>
-              Reports should be submitted in good faith and must
-              not be used to intentionally abuse, harass, or
-              falsely target other users.
-            </p>
-
-            <p>
-              MisfitzStatz may review reports and take
-              appropriate action where a violation of these Terms
-              or applicable platform rules is identified.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="enforcement"
-            title="Enforcement Actions"
-          >
-            <p>
-              MisfitzStatz reserves the right to take reasonable
-              action against accounts, Player IDs, or other
-              activity that violates these Terms.
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>Removal of account verification</li>
-              <li>Removal or restriction of linked accounts</li>
-              <li>Temporary restrictions</li>
-              <li>Restriction of access to the Service</li>
-              <li>Removal of Player IDs from MisfitzStatz features</li>
-              <li>Permanent blacklisting of Player IDs where appropriate</li>
-              <li>Deletion of MisfitzStatz accounts where appropriate</li>
-            </ul>
-
-            <p>
-              Enforcement decisions may be made at the reasonable
-              discretion of the operator based on the
-              circumstances of the violation.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="availability"
-            title="Service Availability"
-          >
-            <p>
-              MisfitzStatz is provided on an "as is" and
-              "as available" basis.
-            </p>
-
-            <p>
-              Continuous availability, uninterrupted operation,
-              and permanent availability of individual features
-              are not guaranteed.
-            </p>
-
-            <p>
-              MisfitzStatz may modify, temporarily disable, or
-              discontinue features where necessary for technical,
-              operational, security, or other reasons.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="accuracy"
-            title="Statistics and Data Accuracy"
-          >
-            <p>
-              Statistics displayed by MisfitzStatz are obtained
-              from external game data sources, including the
-              Misfitz API.
-            </p>
-
-            <p>
-              MisfitzStatz does not control the underlying game
-              data and cannot directly correct data originating
-              from the game Misfitz.
-            </p>
-
-            <p>
-              Accuracy, completeness, availability, and
-              timeliness of displayed information cannot be
-              guaranteed.
-            </p>
-
-            <p>
-              Differences between information displayed by
-              MisfitzStatz and information available through the
-              game or other sources may occur.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="api"
-            title="API and Data Usage"
-          >
-            <p>
-              Access to and use of the MisfitzStatz API requires
-              prior explicit permission from MisfitzStatz.
-            </p>
-
-            <p>
-              API access is not granted merely by accessing the
-              website or using publicly available MisfitzStatz
-              features.
-            </p>
-
-            <p>
-              Without explicit permission, users may not:
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>Access the MisfitzStatz API.</li>
-              <li>Share or redistribute API credentials.</li>
-              <li>
-                Use the API to operate another public service,
-                website, bot, application, or database.
-              </li>
-              <li>
-                Mirror or systematically reproduce MisfitzStatz
-                data.
-              </li>
-              <li>
-                Circumvent API authentication, rate limits, or
-                other technical restrictions.
-              </li>
-              <li>
-                Reverse engineer or attempt to obtain
-                unauthorized API access.
-              </li>
-            </ul>
-
-            <p>
-              Permission to use the API may be granted or revoked
-              at the discretion of MisfitzStatz.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="commercial"
-            title="Commercial Use and Content Creation"
-          >
-            <p>
-              MisfitzStatz data, statistics, rankings, leaderboard
-              information, and other data provided by the Service
-              may not be used for commercial purposes without
-              prior explicit permission from MisfitzStatz.
-            </p>
-
-            <p>
-              This includes, but is not limited to:
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>
-                Selling, licensing, or reselling MisfitzStatz
-                data.
-              </li>
-
-              <li>
-                Incorporating MisfitzStatz data into paid
-                products or services.
-              </li>
-
-              <li>
-                Using MisfitzStatz data as the basis of a
-                commercial competing service.
-              </li>
-
-              <li>
-                Creating or maintaining a commercial mirror or
-                database of MisfitzStatz data.
-              </li>
-
-              <li>
-                Redistributing MisfitzStatz data as a standalone
-                commercial data source.
-              </li>
-            </ul>
-
-            <h3 className="mb-2 text-xl font-semibold">
-              Social Media and Visual Content
-            </h3>
-
-            <p>
-              The use of MisfitzStatz data for visual content
-              creation on social media is permitted, including
-              content published through monetized social media
-              accounts.
-            </p>
-
-            <p>
-              This exception applies provided that:
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>
-                It is clearly apparent that the content concerns
-                MisfitzStatz and/or uses information provided by
-                MisfitzStatz.
-              </li>
-
-              <li>
-                The content does not falsely imply that it is
-                officially produced, sponsored, or endorsed by
-                MisfitzStatz.
-              </li>
-
-              <li>
-                MisfitzStatz data is not redistributed as a
-                standalone database or data service.
-              </li>
-
-              <li>
-                No private, internal, or otherwise non-public
-                MisfitzStatz information is disclosed.
-              </li>
-
-              <li>
-                All other applicable MisfitzStatz Terms of
-                Service are followed.
-              </li>
-            </ul>
-          </TermsSection>
-
-          <TermsSection
-            id="ip"
-            title="Intellectual Property"
-          >
-            <p>
-              The MisfitzStatz platform, its original website
-              design, branding, logos, original content, and
-              original software remain the property of their
-              respective rights holders.
-            </p>
-
-            <p>
-              The MisfitzStatz name and branding may not be used
-              in a manner that falsely suggests an official
-              relationship with another project, service, or
-              website.
-            </p>
-
-            <p>
-              A private recreation or implementation of the
-              general structure or design of MisfitzStatz for
-              personal learning, experimentation, or development
-              purposes is permitted.
-            </p>
-
-            <p>
-              However, publicly distributing or operating a
-              substantially identical copy intended to imitate,
-              replace, or represent MisfitzStatz is not permitted
-              without permission.
-            </p>
-
-            <p>
-              Misfitz, the Misfitz game, and game-related assets
-              remain the property of their respective owners.
-            </p>
-          </TermsSection>
-
-          <TermsSection
-            id="deletion"
-            title="Account Deletion and Historical Data"
-          >
-            <p>
-              Users may delete their MisfitzStatz account through
-              the available account deletion functionality in
-              Settings.
-            </p>
-
-            <p>
-              When an account is deleted, the following account
-              information is removed where applicable:
-            </p>
-
-            <ul className="list-disc space-y-2 pl-6">
-              <li>The associated Discord User ID</li>
-              <li>Linked Misfitz account relationships</li>
-              <li>MisfitzStatz achievements</li>
-              <li>Account-associated privacy settings</li>
-            </ul>
-
-            <p>
-              Previously linked Misfitz Player IDs are released
-              and may be verified again by another eligible
+              Public statistics and leaderboards can be accessed without an
+              account, subject to privacy settings and restrictions. Detailed
+              seasonal statistics and account-related settings require a
               MisfitzStatz account.
             </p>
+          </TermsSection>
 
+          <TermsSection id="accounts" title="2. Accounts and privacy settings">
+            <h3 className="text-lg font-semibold">2a) Discord authentication and linked IDs</h3>
             <p>
-              Deleting a MisfitzStatz account does not
-              automatically remove the corresponding Player ID
-              or historical entries from archived or existing
-              leaderboards.
+              Authentication uses Discord. You may link only Player IDs that
+              you own or are authorized to manage. MisfitzStatz stores the
+              unique Discord User ID as the account identifier. The direct
+              association between a Discord account and a Player ID is not
+              publicly displayed.
             </p>
-
+            <h3 className="text-lg font-semibold">2b) Player privacy levels</h3>
+            <ul className="list-disc space-y-2 pl-6">
+              <li><strong>Open:</strong> the in-game name and Player ID may be displayed on leaderboards.</li>
+              <li><strong>Anonymous:</strong> the displayed name is replaced with “Anonymous”; the Player ID remains visible. This setting is enforced server-side.</li>
+              <li><strong>Hidden:</strong> the profile is excluded from leaderboards but remains searchable and the in-game name remains visible.</li>
+              <li><strong>Private:</strong> statistics are not displayed and the Player ID is not searchable through normal search results. Depending on applicable settings, a lookup may return “Private”, “Blacklisted”, or “Not found” without revealing statistics.</li>
+            </ul>
+            <h3 className="text-lg font-semibold">2c) Account responsibility</h3>
             <p>
-              Historical leaderboard information may remain
-              available for historical and ranking purposes.
-            </p>
-
-            <p>
-              Users may request removal of their Player ID from
-              historical leaderboards by contacting MisfitzStatz
-              through the official support server or by email.
-            </p>
-
-            <p>
-              A Player ID that is no longer linked to a
-              MisfitzStatz account is treated as Open by default,
-              where applicable.
+              You are responsible for the security of your Discord account and
+              for activity carried out through your MisfitzStatz account. You
+              must not attempt to access another person's account or link
+              accounts without authorization.
             </p>
           </TermsSection>
 
-          <TermsSection
-            id="liability"
-            title="Limitation of Liability"
-          >
+          <TermsSection id="public-data" title="3. Public data and archives">
+            <h3 className="text-lg font-semibold">3a) Public statistics</h3>
             <p>
-              To the maximum extent permitted by applicable law,
-              MisfitzStatz shall not be liable for service
-              interruptions, data loss, incorrect statistics,
-              ranking inaccuracies, third-party failures, or
-              changes to the underlying game or API.
+              Visitors may browse leaderboards and search Player IDs that are
+              not private or blocked without logging in. Detailed seasonal
+              statistics require an account. A visible indication that a Player
+              ID is linked does not reveal the Discord account behind the link.
             </p>
-
+            <h3 className="text-lg font-semibold">3b) Historical leaderboards</h3>
             <p>
-              Use of the Service is at the user's own risk.
+              Archived leaderboards are retained indefinitely and include only
+              profiles that were public at the time of the relevant archive.
+              Account deletion does not automatically remove a Player ID from
+              archived records. A separate removal request is required, and
+              technical limitations may prevent direct edits to older archives.
             </p>
-          </TermsSection>
-
-          <TermsSection
-            id="changes"
-            title="Changes to the Service and Terms"
-          >
+            <h3 className="text-lg font-semibold">3c) Optional bot lookup</h3>
             <p>
-              MisfitzStatz reserves the right to modify,
-              suspend, limit, or discontinue any part of the
-              Service at any time.
-            </p>
-
-            <p>
-              These Terms may also be updated to reflect changes
-              to the Service, technical infrastructure, applicable
-              requirements, or operating practices.
-            </p>
-
-            <p>
-              The latest version of these Terms will be made
-              available through the MisfitzStatz website.
-            </p>
-
-            <p>
-              Continued use of the Service after updated Terms
-              become effective constitutes acceptance of the
-              revised Terms.
+              A separate MisfitzStatz Discord bot feature may allow a user to
+              search for another Discord user who has configured a default
+              account through that bot. This feature is disabled by default and
+              is separate from public website leaderboards.
             </p>
           </TermsSection>
 
-          <TermsSection
-            id="contact"
-            title="Contact"
-          >
+          <TermsSection id="acceptable-use" title="4. Acceptable use">
+            <h3 className="text-lg font-semibold">4a) Prohibited conduct</h3>
+            <p>You must not:</p>
+            <ul className="list-disc space-y-2 pl-6">
+              <li>Attempt unauthorized access, bypass authentication, or circumvent technical restrictions or rate limits.</li>
+              <li>Scrape, systematically extract, or reproduce MisfitzStatz statistics or datasets without prior permission.</li>
+              <li>Copy data into a separate tool, service, bot, application, or database without prior permission and a lawful basis for the intended use.</li>
+              <li>Access non-public data or functionality through unofficial methods.</li>
+              <li>Sell, license, or offer MisfitzStatz statistics for sale.</li>
+              <li>Impersonate MisfitzStatz or falsely imply that a service is official or endorsed by MisfitzStatz.</li>
+              <li>Interfere with the security, stability, or availability of the Service.</li>
+            </ul>
+            <h3 className="text-lg font-semibold">4b) Search engines and WebMCP</h3>
             <p>
-              Questions regarding these Terms, API permission,
-              data removal requests, or other matters concerning
-              MisfitzStatz may be submitted through the official
-              support server or by email.
+              Ordinary search-engine indexing of publicly available website
+              content is not prohibited by this section. WebMCP runs on the
+              client and follows the same backend checks as an ordinary website
+              request. It does not grant privileged access or permission to
+              bypass privacy settings, scrape data, or build a separate service
+              from collected statistics.
             </p>
+          </TermsSection>
 
+          <TermsSection id="reports" title="5. Reports and enforcement">
+            <h3 className="text-lg font-semibold">5a) Reports</h3>
             <p>
-              <a
-                href="mailto:scharky.the.shark.official@gmail.com?subject=MisfitzStatz%20Terms%20of%20Service"
-                className="underline"
-              >
-                scharky.the.shark.official@gmail.com
-              </a>
+              Reports must be submitted in good faith and must not be used to
+              harass others or knowingly make false allegations. MisfitzStatz
+              receives the reporting user's Discord User ID, the reported
+              Player ID, the in-game name, and the report reason. The operator
+              reviews reports and may forward relevant information about the
+              reported player and the reason to Antihero Studios where
+              appropriate. The reporting user's Discord User ID is not included
+              in the forwarded report.
+            </p>
+            <p>
+              Reports are normally deleted after handling and retained for no
+              longer than two weeks unless further retention is needed for an
+              ongoing review, follow-up, or abuse prevention. Submitting a
+              report does not guarantee action by Antihero Studios.
+            </p>
+            <h3 className="text-lg font-semibold">5b) MisfitzStatz account restrictions</h3>
+            <p>
+              MisfitzStatz may restrict a Discord account for violations of its
+              own rules. Restrictions may be temporary, from a few days up to
+              six months, or may remain until the relevant restriction record
+              expires under the retention rule below. A violation flag and,
+              where applicable, a reason may be retained to prevent a restriction
+              from being bypassed by creating a new account. No separate flag
+              recording an actual ban-evasion attempt is maintained.
+            </p>
+            <h3 className="text-lg font-semibold">5c) Player ID blacklists</h3>
+            <p>
+              A Player ID may be blacklisted for game-related conduct, such as a
+              problematic in-game name or cheating that affects leaderboard
+              quality or reliability. For this blacklist record, only the Player
+              ID is stored as blocked; no specific reason or timestamp is stored.
+              The blacklist has no fixed expiry and remains until a removal
+              request is approved. A Player ID blacklist may affect a linked
+              Discord account, but a Discord-account restriction for violating
+              MisfitzStatz rules does not by itself blacklist a Player ID.
+              These measures apply only within MisfitzStatz and can be reviewed
+              through support.
+            </p>
+            <h3 className="text-lg font-semibold">5d) Restriction review and retention</h3>
+            <p>
+              The severity and repetition of incidents may be considered when
+              deciding a restriction. Restriction records are handled separately
+              from ordinary account data and are reviewed and removed when they
+              are no longer needed for enforcement or prevention of circumvention.
+              Automatic account deletion after 180 days of inactivity does not
+              itself promise automatic deletion of separate restriction records.
+            </p>
+          </TermsSection>
+
+          <TermsSection id="api" title="6. API and commercial use">
+            <h3 className="text-lg font-semibold">6a) API access</h3>
+            <p>
+              The Misfitz Game API is not public. MisfitzStatz retrieves available
+              game statistics using a Player ID and cannot search that API by
+              in-game name. Access to the MisfitzStatz API requires prior
+              explicit permission from the operator. Viewing the website does
+              not grant API access or permission to copy the underlying dataset.
+            </p>
+            <h3 className="text-lg font-semibold">6b) Content creation</h3>
+            <p>
+              You may create and publish content using website content and
+              statistics, including on monetized social media accounts, YouTube
+              channels, and community servers, provided that you respect player
+              privacy settings and do not expose private or internal information.
+            </p>
+            <p>
+              This permission does not allow selling or licensing statistics,
+              redistributing them as a standalone dataset, building a separate
+              statistics tool from copied data, or implying official sponsorship
+              or endorsement.
+            </p>
+          </TermsSection>
+
+          <TermsSection id="deletion" title="7. Account deletion">
+            <h3 className="text-lg font-semibold">7a) Automatic deletion after inactivity</h3>
+            <p>
+              An account that has not been used to log in for 180 consecutive
+              days is automatically deleted. The last-login date is used to
+              determine inactivity.
+            </p>
+            <h3 className="text-lg font-semibold">7b) Effect of deletion</h3>
+            <p>
+              Deletion removes the MisfitzStatz account data, badges, saved
+              privacy settings, and the association between the Discord account
+              and linked Player IDs. Previously linked Player IDs return to Open
+              unless a blacklist applies. Data held independently by Discord or
+              Antihero Studios is not deleted by deleting a MisfitzStatz account.
+              Any separate restriction record is assessed under section 5d and
+              is not treated as ordinary account profile data.
+            </p>
+            <h3 className="text-lg font-semibold">7c) Historical records and requests</h3>
+            <p>
+              Account deletion does not automatically remove Player IDs from
+              archived leaderboards. Historical leaderboard removal is a
+              separate request. You can request deletion or review through the
+              official MisfitzStatz support server or by email. To minimize
+              additional personal data, use the Discord account linked to your
+              MisfitzStatz account where possible. Proof of ownership may be
+              requested where reasonably necessary.
+            </p>
+          </TermsSection>
+
+          <TermsSection id="availability" title="8. Availability, liability, and changes">
+            <h3 className="text-lg font-semibold">8a) Availability and accuracy</h3>
+            <p>
+              The Service is provided on an “as is” and “as available” basis.
+              Features, statistics, and availability may change. Data may be
+              incomplete, delayed, or inaccurate, and the Service depends in part
+              on third-party infrastructure and the game API.
+            </p>
+            <h3 className="text-lg font-semibold">8b) Liability</h3>
+            <p>
+              Nothing in these Terms excludes or limits liability where such
+              exclusion or limitation is prohibited by applicable law.
+            </p>
+            <h3 className="text-lg font-semibold">8c) Changes and contact</h3>
+            <p>
+              These Terms may be updated to reflect changes to the Service,
+              infrastructure, or legal requirements. Material changes will be
+              communicated in an appropriate manner where required by law.
+              Questions, API permission requests, privacy requests, and removal
+              requests may be sent to{" "}
+              <a href="mailto:scharky.the.shark.official@gmail.com?subject=MisfitzStatz%20Terms%20of%20Service" className="underline text-[#7CFF00]">scharky.the.shark.official@gmail.com</a>{" "}
+              or submitted through the official MisfitzStatz Discord server.
             </p>
           </TermsSection>
         </div>
