@@ -349,6 +349,14 @@ return (
             >
               Verification
             </a>
+
+            <a
+              href="/streamer"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-3 py-2 hover:bg-white/5"
+            >
+              Streamer Tool
+            </a>
 {/*
              <a
               href="/redeem"
@@ -416,6 +424,14 @@ return (
               className="block rounded-xl px-3 py-2 hover:bg-white/5"
             >
               Verification
+            </a>
+
+            <a
+              href="/streamer"
+              onClick={() => setMenuOpen(false)}
+              className="block rounded-xl px-3 py-2 hover:bg-white/5"
+            >
+              Streamer Tool
             </a>
 {/*
             <a

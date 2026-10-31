@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/lib/AuthContext";
-import { updatePrivacy } from "@/lib/auth";
+import { setDefaultStatsAccount, updatePrivacy } from "@/lib/auth";
 
 import AccountSettings from "./components/AccountSettings";
 import LinkedAccounts from "./components/LinkedAccounts";
@@ -27,6 +27,7 @@ const {
     useState<Record<string, PrivacyLevel>>({});
 
   const [saving, setSaving] = useState(false);
+  const [settingDefaultStats, setSettingDefaultStats] = useState(false);
   const [saveMessage, setSaveMessage] = useState("");
 
   const savedPrivacy = useMemo(() => {
@@ -73,6 +74,31 @@ const {
     });
 
     setSaveMessage("");
+  }
+
+  async function handleSetDefaultStats(playerId: string) {
+    if (!account || settingDefaultStats) return;
+    setSettingDefaultStats(true);
+    setSaveMessage("");
+
+    try {
+      const success = await setDefaultStatsAccount(playerId);
+      if (!success) throw new Error("Could not set the default stats account.");
+
+      setAuth({
+        ...account,
+        linkedAccounts: account.linkedAccounts.map((linkedAccount) => ({
+          ...linkedAccount,
+          defaultStats: linkedAccount.playerId === playerId,
+        })),
+      });
+      setSaveMessage("Default stats account updated.");
+    } catch (error) {
+      console.error(error);
+      setSaveMessage("Could not update the default stats account.");
+    } finally {
+      setSettingDefaultStats(false);
+    }
   }
 
   function resetChanges() {
@@ -188,6 +214,8 @@ const {
               linkedAccounts={account.linkedAccounts}
               pendingPrivacy={pendingPrivacy}
               onPrivacyChange={setPrivacy}
+              onSetDefaultStats={handleSetDefaultStats}
+              settingDefaultStats={settingDefaultStats}
             />
           </div>
         )}

@@ -12,6 +12,8 @@ interface LinkedAccountsProps {
     playerId: string,
     privacy: PrivacyLevel
   ) => void;
+  onSetDefaultStats: (playerId: string) => void;
+  settingDefaultStats: boolean;
 }
 
 const privacyDescriptions: Record<
@@ -65,7 +67,9 @@ function displayPlayerId(playerId: string) {
 export default function LinkedAccounts({
   linkedAccounts,
   pendingPrivacy,
-  onPrivacyChange
+  onPrivacyChange,
+  onSetDefaultStats,
+  settingDefaultStats
 }: LinkedAccountsProps) {
   return (
     <section className="rounded-3xl border border-cyan-400/20 bg-cyan-400/5 p-6 backdrop-blur-xl">
@@ -155,6 +159,20 @@ export default function LinkedAccounts({
                 </div>
 
                 <div className="flex flex-wrap gap-2">
+                  {linkedAccount.verified && currentPrivacy === "open" && (
+                    <button
+                      type="button"
+                      disabled={settingDefaultStats || linkedAccount.defaultStats}
+                      onClick={() => onSetDefaultStats(linkedAccount.playerId)}
+                      className={`rounded-xl border px-3 py-2 text-xs font-bold transition ${
+                        linkedAccount.defaultStats
+                          ? "border-emerald-400/40 bg-emerald-500/15 text-emerald-300"
+                          : "border-cyan-400/30 bg-cyan-500/10 text-cyan-200 hover:bg-cyan-500/20"
+                      } disabled:cursor-not-allowed disabled:opacity-60`}
+                    >
+                      {linkedAccount.defaultStats ? "DEFAULT STATS ACCOUNT" : "SET AS DEFAULT STATS"}
+                    </button>
+                  )}
                   {(
                     [
                       "open",

@@ -5,6 +5,7 @@ export interface LinkedAccount {
   playerId: string;
   verified: boolean;
   privacy: "open" | "hidden" | "anonymous" | "private";
+  defaultStats?: boolean;
 }
 
 export interface Account {
@@ -116,6 +117,17 @@ export async function deleteAccount(): Promise<boolean> {
   const response = await authFetch(`${API_URL}/auth/account`, { method: "DELETE" });
   if (!response.ok) return false;
   const data = await response.json();
+  return data.success === true;
+}
+
+export async function setDefaultStatsAccount(playerId: string): Promise<boolean> {
+  const response = await authFetch(`${API_URL}/auth/default-stats`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ playerId }),
+  });
+  if (!response.ok) return false;
+  const data = await response.json() as { success?: boolean };
   return data.success === true;
 }
 
