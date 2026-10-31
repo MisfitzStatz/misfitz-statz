@@ -16,16 +16,15 @@ export const metadata: Metadata = {
   },
 };
 
-function PlaceholderImage({ alt, className = "" }: { alt: string; className?: string }) {
+function AboutImage({ src, alt, className = "" }: { src: string; alt: string; className?: string }) {
   return (
-    <div className={`relative flex min-h-56 items-center justify-center overflow-hidden bg-[#111b2b] sm:min-h-72 ${className}`}>
+    <div className={`relative aspect-square w-full max-w-[34rem] overflow-hidden ${className}`}>
       <Image
-        src="/relic_lost.png"
+        src={src}
         alt={alt}
-        width={420}
-        height={320}
+        fill
         sizes="(max-width: 768px) 100vw, 44vw"
-        className="h-auto max-h-64 w-auto max-w-[85%] object-contain sm:max-h-72"
+        className="object-contain"
       />
     </div>
   );
@@ -57,7 +56,7 @@ export default function AboutPage() {
           </div>
         </header>
 
-<section aria-labelledby="what-heading" className="grid items-start gap-8 py-14 sm:py-20 md:grid-cols-2 md:gap-14 lg:gap-20">
+<section aria-labelledby="what-heading" className="max-w-4xl py-14 sm:py-20">
           <div>
             <h2 id="what-heading" className="text-2xl font-bold leading-tight text-[#7CFF00] sm:text-3xl">What is this, anyway?</h2>
             <div className="mt-5 space-y-4 text-base leading-7 text-white/75">
@@ -66,35 +65,48 @@ export default function AboutPage() {
               <p>The game is about the loop: team up, loot, betray, and extract. MisfitzStatz gives players a separate place to explore their statistics without changing that in-game experience. It is independently operated, not an official Antihero Studios product, and remains free and ad-free.</p>
             </div>
           </div>
-          <PlaceholderImage alt="Temporary artwork placeholder for the MisfitzStatz player statistics section" />
         </section>
 
 <section aria-labelledby="operator-heading" className="grid items-center gap-8 py-10 sm:py-16 md:grid-cols-2 md:gap-14 lg:gap-20">
-          <div className="md:order-2">
-            <h2 id="operator-heading" className="text-2xl font-bold leading-tight text-[#7CFF00] sm:text-3xl">Behind MisfitzStatz</h2>
-            <div className="mt-5 space-y-4 text-base leading-7 text-white/75">
-              <blockquote className="border-l-2 border-[#7CFF00]/70 pl-5 italic text-white/75">
-                <p>“I’m Scharky, a Misfitz player since PA3. I independently run MisfitzStatz and work on the website, backend, statistics features, and Discord integration.</p>
-                <p className="mt-4">I stay in contact with the developers, and together with MisfitzStatz users we discuss which Game API data and features would be useful next. Community feedback helps shape what gets improved and built.”</p>
-              </blockquote>
-            </div>
-          </div>
-          <div className="md:order-1">
-            <PlaceholderImage alt="Temporary artwork placeholder for Scharky, the independent MisfitzStatz operator" />
-          </div>
-        </section>
+  <div className="md:order-2">
+    <h2 id="operator-heading" className="text-2xl font-bold leading-tight text-[#7CFF00] sm:text-3xl">
+      Behind MisfitzStatz
+    </h2>
+
+    <div className="mt-5 space-y-4 text-base leading-7 text-white/75">
+      <blockquote className="border-l-2 border-[#7CFF00]/70 pl-5 italic text-white/75">
+        <p>
+          “I’m Scharky, a Misfitz player since PA3. I independently run MisfitzStatz and work on the website, backend, statistics features, and Discord integration.
+        </p>
+        <p className="mt-4">
+          I stay in contact with the developers, and together with MisfitzStatz users we discuss which Game API data and features would be useful next. Community feedback helps shape what gets improved and built.”
+        </p>
+      </blockquote>
+    </div>
+  </div>
+
+  <div className="flex justify-center md:order-1">
+    <Image
+      src="/about/pfp.png"
+      alt="Scharky, operator of MisfitzStatz"
+      width={420}
+      height={420}
+      className="w-full max-w-[280px] sm:max-w-[320px] aspect-square object-contain"
+    />
+  </div>
+</section>
 
 <section aria-labelledby="idea-heading" className="grid items-center gap-8 py-10 sm:py-16 md:grid-cols-2 md:gap-14 lg:gap-20">
           <div>
             <h2 id="idea-heading" className="text-2xl font-bold leading-tight text-[#7CFF00] sm:text-3xl">The idea behind the project</h2>
             <div className="mt-5 space-y-4 text-base leading-7 text-white/75">
-              <p>During PA4, in-game leaderboards were removed after a significant backlash from established players. The developers publicly confirmed that this community backlash was a reason for the removal.</p>
+              <p>During PA4, the in-game leaderboards were suddenly removed. That decision sparked a significant backlash among established players. The developers later publicly acknowledged the community reaction.</p>
               <p>In PA5, leaderboard information was mainly shared through daily updates on Discord. Players were still asking to see their own statistics, but there was no publicly available, player-focused way to browse a fuller profile, and only a limited set of stats was being tracked.</p>
               <p>MisfitzStatz began as an attempt to fill that gap. The first version introduced a limited set of global PA5 statistics. It was a starting point, not the finished platform: the API response and the website have both grown since then.</p>
               <p>Misfitz itself is built around a simple, tense loop: team up, loot, betray, and extract. MisfitzStatz sits alongside that experience, giving players a place to explore the numbers after a run without turning the game itself into a leaderboard screen.</p>
             </div>
           </div>
-          <PlaceholderImage alt="Temporary artwork placeholder for the origins of MisfitzStatz" />
+          <AboutImage src="/about/WhenStats.png" alt="The original idea behind MisfitzStatz" className="max-w-[34rem]" />
         </section>
 
 <section aria-labelledby="statz-heading" className="py-8 sm:py-12">

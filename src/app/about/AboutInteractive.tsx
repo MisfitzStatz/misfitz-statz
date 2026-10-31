@@ -9,7 +9,7 @@ const videos = [
 ];
 
 const history = [
-  { date: "APR", title: "The idea", type: "done", body: "Players wanted a way to understand their own progress outside a match. The idea for a separate statistics platform began to take shape." },
+  { date: "APR", title: "The idea", type: "done", body: "After the in-game leaderboards were suddenly removed in PA4 and the community backlash that followed, players still wanted ways to explore their own statistics. The idea for a separate platform began to take shape." },
   { date: "MAY", title: "Conversations begin", type: "done", body: "I started discussing a Game API endpoint with the Misfitz developers. The first goal was player-specific statistics, not a return of in-game leaderboards or match statistics." },
   { date: "JUN", title: "First API version", type: "done", body: "The first public version displayed a limited set of global PA5 statistics. It was an early foundation, with a small data response and a desktop-first website." },
   { date: "JUL", title: "Making it usable", type: "done", body: "The site was reworked for phones and tablets, bugs were fixed, and work began on Discord account tools." },

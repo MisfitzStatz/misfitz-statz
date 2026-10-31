@@ -14,7 +14,7 @@ return (
 
     <div className="flex flex-wrap items-center gap-6 text-sm text-white/60">
       <a
-        href="/settings"
+        href="/about"
         className="hide-under-1050 transition hover:text-[#7CFF00]"
       >
         About
@@ -87,8 +87,8 @@ return (
         Support Server
       </a>
       <div className="flex justify-center gap-6 text-white/60">
-        <a href="/settings" className="transition hover:text-[#7CFF00]">
-          Settings
+        <a href="/about" className="transition hover:text-[#7CFF00]">
+          About
         </a>
         <a href="/privacy" className="transition hover:text-[#7CFF00]">
           Privacy
